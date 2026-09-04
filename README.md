@@ -2,6 +2,10 @@
 
 Une machine à remonter le temps numérique pour explorer les pépites d’Internet Archive.
 
+## 🌐 Version en ligne
+
+**https://briskobrice.github.io/Archive-Time-Machine/**
+
 ## V1 — Chronoscope
 
 - **Ce jour-là** : recherche des dates exactes confirmées, sans inventer les métadonnées manquantes.
@@ -12,17 +16,13 @@ Une machine à remonter le temps numérique pour explorer les pépites d’Inter
 - **Favoris et historique** : enregistrés localement avec `localStorage`.
 - Aucun compte, aucun backend, aucune base de données.
 
-## Utilisation
-
-Ouvrir `index.html` depuis un serveur web statique. Le projet est également adapté à GitHub Pages.
-
 ## Données
 
 Archive Time Machine est un frontend de découverte. Les contenus restent hébergés et servis par [Internet Archive](https://archive.org/). Les titres, dates, auteurs et descriptions affichés proviennent des métadonnées disponibles ; une information absente n’est pas inventée.
 
 ## Technologie
 
-HTML, CSS et JavaScript vanilla.
+HTML, CSS et JavaScript vanilla. Déploiement statique via GitHub Pages.
 
 ---
 
