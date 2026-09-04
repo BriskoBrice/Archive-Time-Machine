@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050807">
+<title>Archive Time Machine — Chronoscope</title>
+<meta name="description" content="Machine à remonter le temps numérique alimentée par Internet Archive, en français.">
+<link rel="preconnect" href="https://archive.org">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+<main class="machine">
+  <header class="machine-top">
+    <button class="secure" id="homeBtn" aria-label="Retour à l'accueil" style="background:none;border:0;text-align:left;cursor:pointer"><span class="led"></span><span>CONNEXION SÉCURISÉE<br>AU RÉSEAU DES ARCHIVES</span></button>
+    <span class="lang">LANGUE : FRANÇAIS</span>
+    <div class="top-actions"><button class="icon-btn" id="historyBtn">HIST.</button><button class="icon-btn" id="favoritesBtn">★ <span id="favCount">0</span></button></div>
+  </header>
+
+  <section id="homeView" class="view active">
+    <div class="title-block">
+      <small>ARCHIVE</small><h1>TIME MACHINE</h1>
+      <div class="wingmark"><span>⌁</span></div><p class="tagline">EXPLORER. DÉCOUVRIR. COMPRENDRE.</p>
+    </div>
+
+    <div class="chronoscope-shell">
+      <div class="calibration">CALIBRATION · 1980—2005</div>
+      <button class="dial-step prev" id="yearMinus" aria-label="Année précédente">‹</button>
+      <div class="chronoscope" id="yearDial"><span class="lever" aria-hidden="true"></span>
+        <div class="dial-screen">
+          <div class="dial-corners" aria-hidden="true"></div>
+          <div class="year-stack">
+            <span data-year-offset="-3">1991</span><span data-year-offset="-2">1992</span><span data-year-offset="-1">1993</span>
+            <input class="year-current" id="yearInput" type="number" min="1980" max="2005" value="1994" inputmode="numeric" aria-label="Année sélectionnée">
+            <span data-year-offset="1">1995</span><span data-year-offset="2">1996</span><span data-year-offset="3">1997</span>
+          </div>
+          <div class="dial-status" id="dialStatus">CAPSULE 1994 // PRÊTE</div>
+        </div>
+      </div>
+      <button class="dial-step next" id="yearPlus" aria-label="Année suivante">›</button>
+    </div>
+
+    <div class="mode-grid">
+      <button class="mode-plate" id="todayExploreBtn"><span class="mode-orbit"></span><span class="mode-label">MODE</span><strong>CE JOUR-LÀ</strong><p>Recherche la date exacte dans les archives.</p><span class="today-date" id="todayLabel">—</span></button>
+      <div class="mode-plate travel"><span class="mode-orbit"></span><span class="mode-label">MODE</span><strong>VOYAGER EN</strong><p>Parcourir les années comme une ligne du temps.</p></div>
+    </div>
+
+    <button class="launch" id="openCapsuleBtn"><strong>OUVRIR LA CAPSULE</strong><small>LANCER L’EXPLORATION</small><span class="launch-lamp" aria-hidden="true"></span></button>
+    <button class="deep-home" id="homeDeeperBtn"><span class="deep-radar"></span><span>ENCORE PLUS PROFOND<small>Accéder aux couches enfouies des archives.</small></span><b>›</b></button>
+
+    <section class="artifact-shelf" aria-hidden="true"><div class="shelf-head"><span>☆ ARTÉFACTS À RETROUVER</span><span>ARCHIVE.ORG</span></div><div class="artifacts"><div class="artifact mag">MAGAZINE<br>ARCHIVE</div><div class="artifact vhs">VHS</div><div class="artifact cd">CD-ROM</div><div class="artifact tag">PHOTO<br>ARGENTIQUE</div></div></section>
+    <p class="protocol"><strong>PROTOCOLE D’INTÉGRITÉ</strong> — données réelles uniquement. Une information absente reste absente. Une année n’est jamais transformée en date exacte. Filtre français actif.</p>
+  </section>
+
+  <section id="resultsView" class="view">
+    <div class="results-head"><button class="back-btn" id="backBtn">← RETOUR</button><div><p class="eyebrow" id="resultsEyebrow">CAPSULE TEMPORELLE</p><h1 id="resultsTitle">—</h1><p id="resultsSub">—</p></div></div>
+    <div id="loader" class="loader panel" hidden><div class="radar"><i></i><i></i><i></i></div><div><strong id="loaderTitle">INTERROGATION DES ARCHIVES…</strong><p id="loaderText">Connexion à Internet Archive.</p></div></div>
+    <div id="errorBox" class="error panel" hidden></div>
+    <section id="exactSection" hidden><div class="section-title"><div><p class="eyebrow">DATE CONFIRMÉE</p><h2>Objets datés exactement</h2></div><span id="exactCount"></span></div><div id="exactGrid" class="card-grid"></div></section>
+    <section id="aroundSection" hidden><div class="section-title"><div><p class="eyebrow">AUTOUR DE CETTE PÉRIODE</p><h2>Dates partielles ou année seulement</h2></div></div><p class="section-note">Ces objets ne sont jamais présentés comme ayant été publiés exactement ce jour-là.</p><div id="aroundGrid" class="card-grid"></div></section>
+    <section id="capsuleSection" hidden><div class="section-title"><div><p class="eyebrow">CONTENU RETROUVÉ</p><h2 id="capsuleCount">Capsule</h2></div></div><div id="capsuleGrid" class="card-grid"></div><div class="deep-zone panel"><div><p class="eyebrow">NIVEAU D’EXPLORATION +1</p><h3>Descendre plus profond ?</h3><p>Recherche d’autres identifiants et de contenus moins exposés.</p></div><button class="primary" id="deeperBtn">ENCORE PLUS PROFOND</button></div></section>
+  </section>
+</main>
+
+<aside class="drawer" id="drawer" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow" id="drawerEyebrow">MÉMOIRE LOCALE</p><h2 id="drawerTitle">Favoris</h2></div><button id="drawerClose" class="icon-btn">FERMER</button></div><div id="drawerContent" class="drawer-content"></div></aside><div class="scrim" id="scrim" hidden></div>
+<dialog id="viewer"><div class="viewer-head"><div><p class="eyebrow">LECTEUR ARCHIVE.ORG</p><strong id="viewerTitle"></strong></div><button id="viewerClose" class="icon-btn">FERMER</button></div><div id="viewerBody" class="viewer-body"></div></dialog>
+<template id="cardTemplate"><article class="archive-card"><div class="thumb-wrap"><img class="thumb" alt="" loading="lazy" decoding="async"><div class="thumb-fallback">APERÇU NON DISPONIBLE<br>ARCHIVE.ORG</div><div class="media-badge"></div><button class="fav-btn" aria-label="Ajouter aux favoris">☆</button></div><div class="card-body"><div class="meta-line"><span class="date-chip"></span><span class="category-chip"></span></div><h3 class="card-title"></h3><p class="creator"></p><p class="description"></p><div class="card-actions"><button class="secondary view-btn">CONSULTER</button><a class="link-btn" target="_blank" rel="noopener noreferrer">ARCHIVE.ORG ↗</a></div></div></article></template>
+<script src="app.js"></script>
+</body></html>
