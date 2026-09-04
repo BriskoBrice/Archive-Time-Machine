@@ -28,6 +28,8 @@
   dialog{max-height:calc(100dvh - 12px)}
 }
 
+#travelModeBtn{cursor:pointer}
+#travelModeBtn:active{transform:translateY(1px)}
 .launch:active,.mode-plate:active,.deep-home:active,.primary:active,.secondary:active{
   filter:brightness(1.08);
 }
