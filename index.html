@@ -8,6 +8,7 @@
 <meta name="description" content="Machine à remonter le temps numérique alimentée par Internet Archive, en français.">
 <link rel="preconnect" href="https://archive.org">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="polish.css">
 </head>
 <body>
 <div class="scanlines" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
@@ -66,5 +67,6 @@
 <aside class="drawer" id="drawer" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow" id="drawerEyebrow">MÉMOIRE LOCALE</p><h2 id="drawerTitle">Favoris</h2></div><button id="drawerClose" class="icon-btn">FERMER</button></div><div id="drawerContent" class="drawer-content"></div></aside><div class="scrim" id="scrim" hidden></div>
 <dialog id="viewer"><div class="viewer-head"><div><p class="eyebrow">LECTEUR ARCHIVE.ORG</p><strong id="viewerTitle"></strong></div><button id="viewerClose" class="icon-btn">FERMER</button></div><div id="viewerBody" class="viewer-body"></div></dialog>
 <template id="cardTemplate"><article class="archive-card"><div class="thumb-wrap"><img class="thumb" alt="" loading="lazy" decoding="async"><div class="thumb-fallback">APERÇU NON DISPONIBLE<br>ARCHIVE.ORG</div><div class="media-badge"></div><button class="fav-btn" aria-label="Ajouter aux favoris">☆</button></div><div class="card-body"><div class="meta-line"><span class="date-chip"></span><span class="category-chip"></span></div><h3 class="card-title"></h3><p class="creator"></p><p class="description"></p><div class="card-actions"><button class="secondary view-btn">CONSULTER</button><a class="link-btn" target="_blank" rel="noopener noreferrer">ARCHIVE.ORG ↗</a></div></div></article></template>
+<script src="data-guard.js"></script>
 <script src="app.js"></script>
 </body></html>
