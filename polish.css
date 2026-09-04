@@ -1,0 +1,33 @@
+/* Final mobile polish layered on top of the Chronoscope V1. */
+.dial-status{
+  bottom:4.5%;
+  opacity:.78;
+  padding:3px 7px;
+  border-radius:999px;
+  background:rgba(2,7,5,.62);
+  box-shadow:0 0 14px rgba(80,238,154,.06);
+}
+
+@media (max-width:700px){
+  .lang{
+    display:block;
+    font-size:0;
+    padding:7px 9px;
+    min-width:32px;
+    text-align:center;
+  }
+  .lang::after{
+    content:"FR";
+    font-size:9px;
+    letter-spacing:.12em;
+  }
+}
+
+@supports (min-height:100dvh){
+  body,.machine{min-height:100dvh}
+  dialog{max-height:calc(100dvh - 12px)}
+}
+
+.launch:active,.mode-plate:active,.deep-home:active,.primary:active,.secondary:active{
+  filter:brightness(1.08);
+}
