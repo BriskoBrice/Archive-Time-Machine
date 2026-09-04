@@ -44,7 +44,7 @@
 
     <div class="mode-grid">
       <button class="mode-plate" id="todayExploreBtn"><span class="mode-orbit"></span><span class="mode-label">MODE</span><strong>CE JOUR-LÀ</strong><p>Recherche la date exacte dans les archives.</p><span class="today-date" id="todayLabel">—</span></button>
-      <div class="mode-plate travel"><span class="mode-orbit"></span><span class="mode-label">MODE</span><strong>VOYAGER EN</strong><p>Parcourir les années comme une ligne du temps.</p></div>
+      <button class="mode-plate travel" id="travelModeBtn" type="button" aria-label="Ouvrir la capsule de l’année sélectionnée"><span class="mode-orbit"></span><span class="mode-label">MODE</span><strong>VOYAGER EN</strong><p>Parcourir les années comme une ligne du temps.</p></button>
     </div>
 
     <button class="launch" id="openCapsuleBtn"><strong>OUVRIR LA CAPSULE</strong><small>LANCER L’EXPLORATION</small><span class="launch-lamp" aria-hidden="true"></span></button>
@@ -69,4 +69,5 @@
 <template id="cardTemplate"><article class="archive-card"><div class="thumb-wrap"><img class="thumb" alt="" loading="lazy" decoding="async"><div class="thumb-fallback">APERÇU NON DISPONIBLE<br>ARCHIVE.ORG</div><div class="media-badge"></div><button class="fav-btn" aria-label="Ajouter aux favoris">☆</button></div><div class="card-body"><div class="meta-line"><span class="date-chip"></span><span class="category-chip"></span></div><h3 class="card-title"></h3><p class="creator"></p><p class="description"></p><div class="card-actions"><button class="secondary view-btn">CONSULTER</button><a class="link-btn" target="_blank" rel="noopener noreferrer">ARCHIVE.ORG ↗</a></div></div></article></template>
 <script src="data-guard.js"></script>
 <script src="app.js"></script>
+<script src="travel-mode.js"></script>
 </body></html>
